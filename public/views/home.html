@@ -1,0 +1,122 @@
+<div layout="column" class="relative" layout-fill role="main" style="height:600px" ng-cloak ng-controller="homeCtrl">
+        <div md-whiteframe="4" md-scroll-shrink>
+                <md-toolbar>
+                        <div class="md-toolbar-tools">
+                                <span flex></span>
+                                <h3>
+                                        <span>Book Free</span>
+                                </h3>
+                                <span flex></span>
+                        </div>
+                </md-toolbar>
+
+                <md-tabs md-border-bottom md-center-tabs md-stretch-tabs="always" md-selected="data.selectedIndex" class="md-primary">
+                        <md-tab id="tab1" ui-sref="home" md-on-select="state.is('account.members')" aria-label="members">
+                                <md-tab-label>
+                                        <i class="material-icons">&#xE88A;</i>
+                                </md-tab-label>
+                        </md-tab>
+                        <md-tab id="tab2" ui-sref="home.groups" md-on-select="state.is('account.members')" aria-label="members">
+                                <md-tab-label>
+                                        <i class="material-icons">&#xe7fb;</i>
+                                        <!--people-->
+                                </md-tab-label>
+                        </md-tab>
+
+                        <md-tab id="tab3" ui-sref="home.settings" md-on-select="state.is('account.feed')" aria-label="feed">
+                                <md-tab-label>
+                                        <i class="material-icons" style="font-size: 20px">&#xE8B8;</i>
+                                        <!--chat-->
+                                </md-tab-label>
+                        </md-tab>
+                </md-tabs>
+        </div>
+        <md-content flex md-scroll-y>
+                <ui-view layout="column">
+                        <div class="inset" hide-sm></div>
+                        <ng-switch on="data.selectedIndex" class="tabpanel-container">
+                                <div role="tabpanel" id="tab1" aria-labelledby="tab1" ng-switch-when="0" md-swipe-left="next()" md-swipe-right="previous()"
+                                        layout="row" layout-align="center center">
+                                        <md-card flex-gt-sm="90" flex-gt-md="50">
+                                                <md-card-content>
+                                                        <h2>Activity</h2>
+                                                        <md-list>
+                                                                <md-item ng-repeat="item in activity | filter:search">
+                                                                        <md-item-content>
+                                                                                <div class="md-tile-left inset" hide-sm>
+                                                                                        <user-avatar></user-avatar>
+                                                                                </div>
+                                                                                <div class="md-tile-content">
+                                                                                        <h3>{{item.what}}</h3>
+                                                                                        <h4>{{item.who}}</h4>
+                                                                                        <p>
+                                                                                                {{item.notes}}
+                                                                                        </p>
+                                                                                </div>
+                                                                        </md-item-content>
+                                                                        <md-divider md-inset hide-sm ng-if="!$last"></md-divider>
+                                                                        <md-divider hide-gt-sm ng-if="!$last"></md-divider>
+                                                                </md-item>
+                                                                <md-divider></md-divider>
+                                                                <md-item layout class="inset">
+                                                                        <md-button layout layout-align="start center" flex class="md-primary">
+                                                                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                                                                                        <path d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"
+                                                                                        />
+                                                                                </svg> More
+                                                                        </md-button>
+                                                                </md-item>
+                                                        </md-list>
+                                                </md-card-content>
+                                        </md-card>
+                                </div>
+                        </ng-switch>
+                </ui-view>
+        </md-content>
+
+        <add-items-fab ng-click="ctrl.viewlearningOutCometDialog($event,'#myDialog')"></add-items-fab>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!--<h1>Home Page</h1>
+
+
+<div ng-controller="formCtrl">
+
+    <form novalidate>
+        Enter Amount : <input type="text" ng-model="amount" >
+        <button ng-click="process()">PROCESS</button>
+        <br> <br> <br>
+
+        <div ng-repeat="mem in members">
+                {{mem.name}} : <input type="text" ng-model="mem.price"> 
+        </div>
+        <br> <br> <br>
+        <button ng-click="submit()">submit</button>
+    </form>
+
+</div>
+
+-->

@@ -1,0 +1,29 @@
+md-tabs:not(.md-no-tab-content):not(.md-dynamic-height) {
+    min-height: 248px;
+}
+
+md-tabs.md-default-theme md-ink-bar, md-tabs md-ink-bar {
+    color: rgb(252, 252, 252) !important;
+    background-color:rgb(221, 221, 221) !important;
+}
+
+.login-header{
+  min-height: 200px;
+  padding-bottom: 60px;
+}
+
+.login-body {
+  position: relative;
+  top: -100px;
+  z-index: 10;
+}
+
+#login-icon-padding{
+  padding-top:30px;
+}
+
+.headline-browse{
+  color: rgb(63,81,181);
+  margin: auto;
+  padding-top:20px;
+}

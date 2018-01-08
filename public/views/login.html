@@ -1,0 +1,50 @@
+<div layout="column" class="relative" layout-fill role="main" style="height:600px" ng-cloak ng-controller="homeCtrl">
+        
+        <md-toolbar>
+                <div class="md-toolbar-tools login-header">
+                        <span flex></span>
+                        <h3>
+                                <span>Book Free</span>
+                        </h3>
+                        <span flex></span>
+                </div>
+        </md-toolbar>
+
+        <div class="login-body">
+          <md-content layout-padding class="md-padding" layout-align="center" layout="column">
+            <div layout="row" layout-align="center center">
+              <md-card flex="50" flex-md="100" flex-xs="100">
+                <md-content layout="column" layout-align="center center">
+                  <div layout="row" layout-align="center center" id="login-icon-padding">
+                    <ng-md-icon icon="account_circle" size="100" style="fill:rgb(63,81,181)"></ng-md-icon>
+                  </div>
+                  <div>LOGIN</div>
+                  <form name="ctrl.loginForm">
+                    <md-input-container class="md-block">
+                      <label>Email</label>
+                      <input type="email" name="email" ng-model="ctrl.userInfo.email" required ng-pattern="/^[_a-z0-9]+(\.[_a-z0-9]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,4})$/">
+                      <div ng-messages="ctrl.loginForm.email.$error">
+                        <div ng-message="required">Email is required.</div>
+                        <div ng-message="pattern">Email Is Invalid</div>
+                      </div>
+                    </md-input-container>
+      
+                    <md-input-container class="md-block">
+                      <label>Password</label>
+                      <input type="password" name="password" ng-model="ctrl.userInfo.password" required maxlength="16" minlength="6" />
+                      <div ng-messages="ctrl.loginForm.password.$error" role="alert">
+                        <div ng-message-exp="['required', 'minlength', 'maxlength']">
+                          Your password must be between 6 and 16 characters .
+                        </div>
+                      </div>
+                    </md-input-container>
+                    <center>
+                      <md-button ng-disabled="!ctrl.loginForm.$valid" ng-click="ctrl.submit()" class="md-raised md-primary">&nbsp Login &nbsp</md-button>
+                      <center>
+                  </form>
+                </md-content>
+              </md-card>
+            </div>
+          </md-content>
+        </div>
+      </div>
